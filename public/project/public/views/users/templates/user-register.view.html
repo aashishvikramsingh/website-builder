@@ -1,0 +1,213 @@
+
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid" >
+
+        <div  class="navbar-text navbar-link pull-left">
+            <a href="#/login">
+                <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white" title="Back"></span>
+            </a>
+        </div>
+
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0" ng-if="model.role==0">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font" >User Register </span>
+        </div>
+
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0" ng-if="model.role==1">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Owner Register </span>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="container wbdv-pageBackground">
+    <div  ng-show="model.message" class="alert alert-success wbdv-register-msg" role="alert" >
+        {{model.message}}
+    </div>
+
+    <div ng-show="model.error" class="alert alert-danger wbdv-register-msg" role="alert">
+        <div ng-repeat="e in model.error">
+            {{e}}
+        </div>
+
+    </div>
+
+    <div class="container blackContainer">
+
+        <div class="row wbdv-pad-left-right contentContainer">
+            <h1 class="wbdv-text-clr-white wbdv-pageHeading">Registration</h1>
+            <form name="profilePage">
+
+                <div class="row">
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <input ng-model="model.user.username"
+                               type="text" class="form-control"
+                               id="username"
+
+                               placeholder="Username"
+                               required/>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <input ng-model="model.user.firstName"
+                               type="text" class="form-control"
+                               id="firstName"
+                               name="firstName"
+
+                               placeholder="First Name"
+                               required/>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <input ng-model="model.user.lastName"
+                               type="text" class="form-control"
+                               id="lastName"
+                               name="lastName"
+
+                               placeholder="Last Name"
+                               required/>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <input ng-model="model.user.password"
+                               type="password" class="form-control"
+                               id="password"
+                               name="password"
+
+                               placeholder="Password"
+                               required/>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <input ng-model="model.user.password2"
+                               type="password" class="form-control"
+                               id="password2"
+                               name="password2"
+
+                               placeholder="Verify Password"
+                               required/>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <input ng-model="model.user.email"
+                               type="email" class="form-control"
+                               id="email"
+
+                               placeholder="Email Id"
+                               required/>
+                    </div>
+
+                </div>
+
+                <div class="row ">
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <input ng-model="model.user.phone"
+                               type="text" class="form-control"
+                               id="phone"
+                               name="phone"
+                               pattern="[0-9]{10}"
+                               placeholder="Phone"
+                               required/>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-12 ">
+                        <div class="form-group ">
+                            <input    ng-model="model.user.address"
+                                      ng-change="model.loadAddressFromAPI()"
+                                      type="text"
+                                      list="addressList"
+                                      class="form-control"
+                                      id="address"
+                                      name="address"
+                                      placeholder="Address"
+                                      ng-blur="model.populateCityAndStateIfDlSel()"
+                                      required>
+                            <datalist id="addressList">
+                                <option ng-repeat="adr in model.addressFromAPI" value="{{adr.text}}">
+                            </datalist>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-xs-12 ">
+
+                        <input id="city"
+                               type="text"
+                               class="form-control"
+                               placeholder="City"
+                               ng-model="model.user.city"
+
+                               required/>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <select id="state"
+                                class="form-control wbdv-text-align-last-center"
+                                ng-model="model.user.state"
+                                ng-init="model.user.state = model.user.state || model.states[0]"
+                                ng-options="option for option in model.states">
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <input ng-model="model.user.pin"
+                               type="text" class="form-control"
+                               id="pin"
+                               name="pin"
+                               placeholder="PIN"
+                               required/>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-xs-12 ">
+                        <select ng-model="model.user.country"
+                                id="country"
+                                name="country"
+                                class="form-control wbdv-text-align-last-center"
+                                ng-init="model.user.country = model.user.country||model.countries[0]"
+                                ng-options="option for option in model.countries">
+                        </select>
+                    </div>
+
+
+
+
+
+                </div>
+            </form>
+            <div class="row wbdv-mar-bottom-10">
+                <div class="col-sm-6 col-xs-12">
+                    <a ng-click="model.createUser(model.user)"
+                       class="btn btn-success btn-block form-control">Register</a>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <a href="#/login" class="btn btn-danger  btn-block">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

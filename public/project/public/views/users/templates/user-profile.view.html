@@ -1,0 +1,393 @@
+<nav class="navbar  navbar-fixed-top bg-primary" xmlns="http://www.w3.org/1999/html">
+    <div class="container-fluid" >
+
+        <div ng-show="model.user.role=='USER'">
+            <div  class="navbar-text navbar-link pull-left">
+                <a href="#/login">
+                    <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white" title="Back"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+                <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">User Profile </span>
+            </div>
+
+            <div  class="navbar-text navbar-link pull-right hidden-xs">
+                <a href="#/user/searchResult">
+                    <span class="wbdv-text-clr-white" title="Search">Search</span>
+                </a>
+            </div>
+            <div  class="navbar-text navbar-link pull-right visible-xs">
+                <a href="#/user/searchResult">
+                    <span class="glyphicon glyphicon-search wbdv-text-clr-white" title="Search"></span>
+                </a>
+            </div>
+
+            <div  class="navbar-text navbar-link pull-right hidden-xs wbdv-pad-right-25">
+                <a ng-click="model.updateUser(model.user._id,model.user)">
+                    <span class="wbdv-text-clr-white" title="Update Profile">Update Profile</span>
+                </a>
+            </div>
+            <div  class="navbar-text navbar-link pull-right visible-xs wbdv-pad-right-25" >
+                <a ng-click="model.updateUser(model.user._id,model.user)">
+                    <span class="glyphicon glyphicon-ok wbdv-text-clr-white" title="Update Profile"></span>
+                </a>
+            </div>
+
+            <div  class="navbar-text navbar-link pull-right hidden-xs wbdv-pad-right-25" >
+                <a href="#/user/orders">
+                    <span class="wbdv-text-clr-white" title="Orders">Orders</span>
+                </a>
+            </div>
+            <div  class="navbar-text navbar-link pull-right visible-xs wbdv-pad-right-25" >
+                <a href="#/user/orders">
+                    <span class="wbdv-text-clr-white" title="Orders">
+                        <i class="fa fa-history" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+        <div ng-show="model.user.role=='OWNER'">
+
+            <div  class="navbar-text navbar-link pull-left">
+                <a href="#/user/restaurant">
+                    <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white" title="Back"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+                <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Owner Profile </span>
+            </div>
+
+            <div  class="navbar-text navbar-link pull-right hidden-xs">
+
+                <a href="#/user/restaurant" class="wbdv-pad-right-25">
+                    <span class=" wbdv-text-clr-white" title="View Restaurant">View Restaurant </span>
+                </a>
+
+                <a ng-click="model.updateUser(model.user._id, model.user)" >
+                    <span class="wbdv-text-clr-white" title="Update Profile">Update Profile</span>
+                </a>
+
+            </div>
+
+            <div  class="navbar-text navbar-link pull-right visible-xs">
+
+                <a href="#/user/restaurant" class="wbdv-pad-right-25">
+                    <span class="glyphicon glyphicon-cutlery wbdv-text-clr-white" title="View Restaurant"></span>
+                </a>
+
+                <a ng-click="model.updateUser(model.user._id,model.user)" >
+                    <span class="glyphicon glyphicon-ok wbdv-text-clr-white" title="Update Profile"></span>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div ng-show="model.user.role=='DELIVERYBOY'">
+            <div  class="navbar-text navbar-link pull-left">
+                <a href="#/login">
+                    <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white" title="Back"></span>
+                </a>
+            </div>
+
+
+
+            <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+                <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Delivery Boy Profile </span>
+            </div>
+
+
+
+            <div  class="navbar-text navbar-link pull-right hidden-xs" >
+                <a ng-click="model.updateUser(model.user._id,model.user)">
+                    <span class="wbdv-text-clr-white" title="Update Profile">Update Profile</span>
+                </a>
+            </div>
+            <div  class="navbar-text navbar-link pull-right visible-xs">
+                <a ng-click="model.updateUser(model.user._id,model.user)">
+                    <span class="glyphicon glyphicon-ok wbdv-text-clr-white" title="Update Profile"></span>
+                </a>
+            </div>
+
+            <div  class="navbar-text navbar-link pull-right hidden-xs wbdv-pad-right-25">
+                <a href="#/user/dborders">
+                    <span class="wbdv-text-clr-white" title="Update Profile">Orders</span>
+                </a>
+            </div>
+            <div  class="navbar-text navbar-link pull-right visible-xs wbdv-pad-right-25">
+                <a href="#/user/dborders">
+                    <span class="glyphicon glyphicon-list-alt wbdv-text-clr-white" title="Orders"></span>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</nav>
+
+<div class="container wbdv-pageBackground">
+    <div class="container blackContainer">
+
+        <div ng-show="model.message" class="alert alert-success wbdv-register-msg" role="alert" >
+            {{model.message}}
+        </div>
+
+        <div  ng-show="model.error" class="alert alert-danger wbdv-register-msg" role="alert">
+            <div ng-repeat="e in model.error">
+                {{e}}
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-xs-8 col-sm-10">
+                <h1 class="wbdv-pageHeading">Profile</h1>
+            </div>
+
+            <div  class="wbdv-text-clr-white col-xs-4 col-sm-2"
+                  ng-show="model.user.role=='DELIVERYBOY'"
+                  title="Availability" ng-click="model.available()">
+
+                <input id =  "delBoyAvail"
+                       type="checkbox"
+                       checked
+                       data-width="100"
+                       data-toggle="toggle"
+                       data-on="Active"
+                       data-off="Offline"
+                       data-onstyle="success"
+                       data-offstyle="danger"
+                       data-size="large">
+
+            </div>
+        </div>
+
+        <div class="contentContainer">
+
+
+
+            <div class="row">
+                <form name="profilePage">
+
+                    <div class="row ">
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.username"
+                                   ng-disabled="model.user.username"
+                                   type="text" class="form-control"
+                                   id="username"
+
+                                   placeholder="Username"/>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.firstName"
+                                   type="text" class="form-control"
+                                   id="firstName"
+                                   name="firstName"
+
+                                   placeholder="First Name"
+                                   required/>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.lastName"
+                                   type="text" class="form-control"
+                                   id="lastName"
+                                   name="lastName"
+
+                                   placeholder="Last Name"
+                                   required/>
+                        </div>
+
+                    </div>
+
+                    <div class="row ">
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.password"
+                                   type="password" class="form-control"
+                                   id="password"
+                                   name="password"
+
+                                   placeholder="Password"
+                                   required/>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.email"
+                                   type="email" class="form-control"
+                                   id="email"
+
+                                   placeholder="Email Id"
+                                   ng-disabled="model.user.email"/>
+                        </div>
+
+
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.phone"
+                                   type="text" class="form-control"
+                                   id="phone"
+                                   name="phone"
+                                   placeholder="Phone"
+                                   required/>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="row ">
+                        <div class="col-sm-4 col-xs-12 ">
+                            <div class="form-group ">
+                                <input    ng-model="model.user.address"
+                                          ng-change="model.loadAddressFromAPI()"
+                                          type="text"
+                                          list="addressList"
+                                          class="form-control"
+                                          id="address"
+                                          name="address"
+                                          placeholder="Address"
+                                          ng-blur="model.populateCityAndStateIfDlSel()"
+                                          required>
+                                <datalist id="addressList">
+                                    <option ng-repeat="adr in model.addressFromAPI" value="{{adr.text}}">
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input id="city"
+                                   type="text"
+                                   class="form-control"
+                                   placeholder="City"
+                                   ng-model="model.user.city"
+
+                                   required/>
+
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12 ">
+                            <select id="state"
+                                    class="form-control wbdv-text-align-last-center"
+                                    ng-model="model.user.state"
+                                    ng-init="model.user.state = model.user.state || model.states[0]"
+                                    ng-options="option for option in model.states">
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <select ng-model="model.user.country"
+                                    id="country"
+                                    name="country"
+                                    class="form-control wbdv-text-align-last-center"
+                                    ng-init="model.user.country = model.user.country||model.countries[0]"
+                                    ng-options="option for option in model.countries">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.pin"
+                                   type="text" class="form-control"
+                                   id="pin"
+                                   name="pin"
+                                   placeholder="PIN"
+                                   required/>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-4">
+                            <input ng-model="model.user.dateCreated"
+                                   ng-disabled="model.user.dateCreated"
+                                   type="text" class="form-control"
+                                   id="dateCreated"
+                                   name="dateCreated"/>
+                        </div>
+                    </div>
+
+                    <div class="row wbdv-mar-bottom-30"
+                         ng-show="model.user.role=='USER' && model.deliverAddressLength &gt; 0">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 wbdv-mar-top-5">
+                                <div  data-target="#delAdd" data-toggle="collapse" class="wbdv-background-black">
+                                    <div class="col-xs-8 col-sm-4" >Manage Delivery Addresses</div>
+                                    <div class="col-xs-4 col-sm-2">
+                                        <span class="glyphicon glyphicon-chevron-down "></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 wbdv-mar-top-5">
+
+                                <ul id="delAdd" class="list-group collapse" >
+                                    <li class="list-group-item wbdv-mar-left-5 wbdv-background-black wbdv-mar-left-3"
+                                        ng-repeat="add in model.user.deliverAddress">
+                                        <div class="row">
+                                            <span>{{add}}</span>
+                                            <a ng-click="model.removeAddFromDelAddressList(add)" class="pull-right">
+                                                <span class="glyphicon glyphicon-remove wbdv-remove-font"></span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+
+                <div class="row wbdv-mar-bottom-30 wbdv-mar-top-5">
+                    <div class="col-sm-6 col-xs-12">
+                        <a ng-click="model.updateUser(model.user._id,model.user)"
+                           class="btn btn-success btn-block form-control">Update</a>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                        <a ng-click="model.logOutUser(model.user)" class="btn btn-danger  btn-block">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary" >
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-xs-12" >
+
+                <a ng-click="model.deleteUser(model.user._id)" class="wbdv-mar-left-5 pull-left">
+                        <span class="glyphicon glyphicon-trash wbdv-text-clr-white navbar-text">
+                        </span>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</nav>

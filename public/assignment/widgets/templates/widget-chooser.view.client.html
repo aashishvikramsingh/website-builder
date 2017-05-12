@@ -1,0 +1,45 @@
+
+
+    <nav class="navbar navbar-fixed-top bg-primary">
+        <div class="container-fluid">
+
+            <div class="navbar-text pull-left wbdv-mar-left-0">
+                <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                    <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header pull-left">
+                <span class="navbar-brand wbdv-text-clr-white">Choose Widget</span>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="container-fluid wbdv-mar-bottom-60 wbdv-mar-top-25">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="w in model.widget">
+                <a
+                  href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/{{w.widgetType}}">
+                    {{w.widgetType}}</a>
+
+            </li>
+        </ul>
+    </div>
+
+
+    <nav class="navbar  navbar-fixed-bottom bg-primary">
+        <div class="container-fluid">
+            <div class="row navbar-footer">
+                <div class="col-xs-12 wbdv-mar-right-5" >
+                    <a href="#/users/{{model.userId}}" class="pull-right">
+                        <span class="glyphicon glyphicon-user navbar-text wbdv-text-clr-white"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+

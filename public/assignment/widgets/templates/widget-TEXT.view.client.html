@@ -1,0 +1,13 @@
+<div ng-if="widget.formatted"
+     text-angular  ng-model="widget.text" ng-blur="model.updateAngularText(widget)"
+     ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+     ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+     ['indent','outdent'],['html']]"></div>
+
+<input ng-if="!widget.formatted && (!widget.rows || widget.rows===1)"
+   ng-model="widget.text" ng-blur="model.updateAngularText(widget)" placeholder="{{widget.placeholder}}" class="form-control"/>
+
+<textarea ng-if="!widget.formatted && (widget.rows > 1)" ng-blur="model.updateAngularText(widget)"
+          rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
+          class="form-control">{{widget.text}}</textarea>
+

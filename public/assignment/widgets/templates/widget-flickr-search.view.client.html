@@ -1,0 +1,61 @@
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div ng-if="model.widgetId" class="navbar-text pull-left wbdv-mar-left-0" >
+                    <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.mode}}"
+                       class="wbdv-text-clr-white">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+
+                <div ng-if="!model.widgetId" class="navbar-text pull-left wbdv-mar-left-0" >
+                    <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/IMAGE"
+                       class="wbdv-text-clr-white">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+
+                <div class="navbar-header pull-left">
+                    <span class="navbar-brand wbdv-text-clr-white">
+                        Search Flickr
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container wbdv-mar-top-50">
+    <div class="input-group">
+        <input ng-model="model.searchText" type="text" class="form-control">
+        <span class="input-group-btn wbdv-flickr-search">
+            <a ng-click="model.searchPhotos(model.searchText)" class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+        </span>
+    </div>
+
+    <div>
+        <div class="img-responsive img-thumbnail pull-left" ng-repeat="photo in model.photos.photo">
+            <img ng-click="model.selectPhoto(photo)"
+                 ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
+        </div>
+    </div>
+
+</div>
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 wbdv-mar-right-5" >
+                <a href="#/users/{{model.userId}}" class="pull-right">
+                    <span class="glyphicon glyphicon-user navbar-text wbdv-text-clr-white"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

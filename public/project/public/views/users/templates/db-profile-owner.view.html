@@ -1,0 +1,216 @@
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid" >
+        <div>
+            <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+                <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Delivery Boy Profile </span>
+            </div>
+            <div  class="navbar-text navbar-link pull-right hidden-xs">
+                <a ng-click="model.updateUser(model.user._id,model.user)">
+                    <span class="wbdv-text-clr-white" title="Update Profile">Update Profile</span>
+                </a>
+            </div>
+            <div  class="navbar-text navbar-link pull-right visible-xs">
+                <a ng-click="model.updateUser(model.user._id,model.user)">
+                    <span class="glyphicon glyphicon-ok wbdv-text-clr-white" title="Update Profile"></span>
+                </a>
+            </div>
+        </div>
+
+        </div>
+</nav>
+
+
+
+
+<div class="container wbdv-pageBackground">
+
+    <div class="container blackContainer">
+
+        <div class="contentContainer">
+            <h1 class="wbdv-pageHeading">Profile</h1>
+            <div class="row">
+                <form name="profilePage">
+
+                    <div class="row ">
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.username"
+                                   ng-disabled="model.user.username"
+                                   type="text" class="form-control"
+                                   id="username"
+
+                                   placeholder="Username"/>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.firstName"
+                                   type="text" class="form-control"
+                                   id="firstName"
+                                   name="firstName"
+
+                                   placeholder="First Name"
+                                   required/>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.lastName"
+                                   type="text" class="form-control"
+                                   id="lastName"
+                                   name="lastName"
+
+                                   placeholder="Last Name"
+                                   required/>
+                        </div>
+
+                    </div>
+
+                    <div class="row ">
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.password"
+                                   type="password" class="form-control"
+                                   id="password"
+                                   name="password"
+
+                                   placeholder="Password"
+                                   required/>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.email"
+                                   type="email" class="form-control"
+                                   id="email"
+
+                                   placeholder="Email Id"
+                                   ng-disabled="model.user.email"/>
+                        </div>
+
+
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.phone"
+                                   type="text" class="form-control"
+                                   id="phone"
+                                   name="phone"
+                                   placeholder="Phone"
+                                   required/>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row ">
+                        <div class="col-sm-4 col-xs-12 ">
+                            <div class="form-group ">
+                                <input    ng-model="model.user.address"
+                                          ng-change="model.loadAddressFromAPI()"
+                                          type="text"
+                                          list="addressList"
+                                          class="form-control"
+                                          id="address"
+                                          name="address"
+                                          placeholder="Address"
+                                          ng-blur="model.populateCityAndStateIfDlSel()"
+                                          required>
+                                <datalist id="addressList">
+                                    <option ng-repeat="adr in model.addressFromAPI" value="{{adr.text}}">
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <input ng-model="model.user.city"
+                                   id="city"
+                                   name="city"
+                                   class="form-control" placeholder="City"
+                            />
+
+                        </div>
+
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <select id="state"
+                                    class="form-control wbdv-text-align-last-center"
+                                    ng-model="model.user.state"
+                                    ng-init="model.user.state = model.user.state || model.states[0]"
+                                    ng-options="option for option in model.states">
+
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="form-group col-sm-4 col-xs-12">
+                            <select ng-model="model.user.country"
+                                    id="country"
+                                    name="country"
+                                    class="form-control wbdv-text-align-last-center"
+                                    ng-init="model.user.country = model.user.country||model.countries[0]"
+                                    ng-options="option for option in model.countries">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-4 col-xs-12">
+                        <input ng-model="model.user.pin"
+                               type="text" class="form-control"
+                               id="pin"
+                               name="pin"
+                               placeholder="PIN"
+                               required/>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-4">
+                            <input ng-model="model.user.dateCreated"
+                                   ng-disabled="model.user.dateCreated"
+                                   type="text" class="form-control"
+                                   id="dateCreated"
+                                   name="dateCreated"/>
+                        </div>
+
+                    </div>
+
+
+
+                </form>
+                <div class="row wbdv-mar-bottom-30 wbdv-mar-top-5">
+                    <div class="col-sm-6 col-xs-12">
+                        <a ng-click="model.updateUser(model.user._id,model.user)"
+                           class="btn btn-success btn-block form-control">Update</a>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                        <a ng-click="model.logout()" class="btn btn-danger  btn-block">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary" >
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-xs-12" >
+
+                <a ng-click="model.deleteUser(model.user._id)" class="wbdv-mar-left-5 pull-left">
+                        <span class="glyphicon glyphicon-trash wbdv-text-clr-white navbar-text">
+                        </span>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</nav>

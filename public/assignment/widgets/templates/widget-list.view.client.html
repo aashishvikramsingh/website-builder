@@ -1,0 +1,99 @@
+
+<nav class="navbar navbar-fixed-top bg-primary">
+    <div class="container-fluid">
+
+        <div class="navbar-text pull-right ">
+            <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+                <span class="glyphicon glyphicon-plus wbdv-text-clr-white"></span>
+            </a>
+        </div>
+
+        <div class="navbar-text pull-left wbdv-mar-left-0">
+            <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/">
+                <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white"></span>
+            </a>
+        </div>
+
+        <div class="navbar-header pull-left">
+            <span class="navbar-brand wbdv-text-clr-white">Widgets</span>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+<div class="container-fluid wbdv-mar-bottom-60">
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
+    <div wbdv-sortable get-index="model.rearrangeList(index)" class="wbdv-mar-top-25">
+        <div ng-repeat="widget in model.widgets" class="wbdv-mar-top-5" >
+
+            <div class="wbdv-toolbar pull-right">
+                <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+
+                <a class="justify">
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                </a>
+            </div>
+
+
+
+
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADER">
+
+                    <ng-include src="'widgets/templates/widget-HEADER.view.client.html'"></ng-include>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <ng-include src="'widgets/templates/widget-IMAGE.view.client.html'"></ng-include>
+                </div>
+                <div ng-switch-when="HTML">
+                    <ng-include src="'widgets/templates/widget-HTML.view.client.html'"></ng-include>
+                </div>
+                <div ng-switch-when="YOUTUBE" class="wbdv-youtube-widget">
+                    <ng-include src="'widgets/templates/widget-YOUTUBE.view.client.html'"></ng-include>
+                </div>
+                <div ng-switch-when="TEXT">
+                    <ng-include src="'widgets/templates/widget-TEXT.view.client.html'"></ng-include>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<nav class="navbar navbar-fixed-bottom bg-primary">
+    <div class="container-fluid">
+
+        <div class="navbar-text pull-right">
+            <a href="#/users/{{model.userId}}">
+                <span class="glyphicon glyphicon-user wbdv-text-clr-white"></span>
+            </a>
+        </div>
+
+        <div class="navbar-text pull-left ">
+            <a>
+                <span class="glyphicon glyphicon-play wbdv-text-clr-white "></span>
+            </a>
+        </div>
+
+        <div class="navbar-text wbdv-mar-left-30">
+            <a>
+                <span class="glyphicon glyphicon-eye-open wbdv-text-clr-white"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+

@@ -1,0 +1,238 @@
+<nav class="navbar navbar_container navbar-fixed-top ">
+    <div class="container-fluid">
+
+        <div class="navbar-text pull-left wbdv-mar-left-0 ">
+            <a href="#/user/searchResult">
+                <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white"></span>
+            </a>
+        </div>
+
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font"> CheckOut</span>
+        </div>
+
+
+        <div class="navbar-text navbar-link pull-right hidden-xs">
+            <a href="#/user/searchResult">
+                <span class="wbdv-text-clr-white" title="cancel">Cancel</span>
+            </a>
+        </div>
+        <div class="navbar-text navbar-link pull-right visible-xs">
+            <a href="#/user/searchResult">
+                <span class="glyphicon glyphicon-remove wbdv-text-clr-white" title="cancel"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container wbdv-pageBackground">
+    <div class="blackContainer">
+        <div class="contentContainer">
+            <div ng-show="model.message" class="alert alert-success wbdv-register-msg" role="alert" >
+                {{model.message}}
+            </div>
+
+            <div ng-show="model.error" class="alert alert-danger wbdv-register-msg" role="alert">
+                {{model.error}}
+            </div>
+
+            <div  class="wbdv-checkout-cont-format wbdv-text-clr-white">
+
+                <div class="row wbdv-text-clr-white wbdv-checkout-header">
+                    <div class="wbdv-text-align-center wbdv-pad-top-25">YOUR ORDER DETAILS</div>
+                </div>
+
+
+                <div class=" wbdv-mar-top-10">
+
+
+
+
+                    <div class="row">
+                        <div class="col-xs-4 pull-left">
+                            <span><h4>Restaurant:</h4></span>
+                        </div>
+                        <div class="col-xs-8 pull-left">
+                            <span><h4><em>{{model.restaurantName}}</em></em></h4></span>
+                        </div>
+                    </div>
+
+                    <ul class="list-group wbdv-mar-top-15">
+                        <li class="list-group-item wbdv-checkout-item-lst" >
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <span>Items</span>
+                                </div>
+                                <div class="col-xs-2 wbdv-pad-left-0">
+                                    <span>UnitPrice</span>
+                                </div>
+                                <div class="col-xs-2">
+                                    <span>Qty</span>
+                                </div>
+                                <div class="col-xs-3">
+                                    <span>Total ($)</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="list-group" >
+                        <li class="list-group-item wbdv-background-black" ng-repeat="item in model.cart.items">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <span>{{item.name}}</span>
+                                </div>
+                                <div class="col-xs-2">
+                                    <span>{{item.basePrice}}</span>
+                                </div>
+                                <div class="col-xs-2">
+                                    <span>{{item.totCount}}</span>
+                                </div>
+                                <div class="col-xs-3 wbdv-prevent-overflow">
+                                    <span>{{item.totPrice}}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+
+                    <div class="wbdv-mar-top-10 wbdv-mar-bottom-20 wbdv-tot-bg">
+                        <span class="wbdv-tot-span">
+                            <span>
+                               <strong>Total:</strong>
+                            </span>
+
+                            <span class="glyphicon glyphicon-usd"></span>
+                            <span>
+                                <strong>{{model.cart.amount}}</strong>
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="wbdv-mar-top-10 wbdv-mar-bottom-20">
+                        <span class="wbdv-font-wt-900">Please select the Address or add a new one</span>
+                        <form>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="row wbdv-mar-top-5">
+                                        <input type="radio"
+                                               ng-model="model.address"
+                                               name="address"
+                                               value="Existing"
+                                               class="wbdv-mar-left-15"
+                                               checked> Existing Delivery Address
+                                    </div>
+                                    <div class="row " ng-if="model.address=='Existing'">
+                                        <div class="col-xs-12">
+                                            <select id="existingAddress"
+                                                    class="form-control"
+                                                    ng-model="model.selectedAddress"
+                                                    ng-init="model.selectedAddress = model.selectedAddress || model.deliveryAddresses[0]"
+                                                    ng-options="option for option in model.deliveryAddresses">
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="wbdv-mar-top-10 row">
+                                        <input  type="radio"
+                                                ng-model="model.address"
+                                                name="address"
+                                                class="wbdv-mar-left-15"
+                                                value="New"> New Delivery Address
+                                    </div>
+                                    <div class="row wbdv-mar-top-5"  ng-if="model.address=='New'">
+                                        <div class="row">
+                                            <div class="form-group col-sm-6 col-xs-12">
+                                                <input    ng-model="model.newAddress"
+                                                          ng-change="model.loadAddressFromAPI()"
+                                                          type="text"
+                                                          list="addressList"
+                                                          class="form-control"
+                                                          id="newAddress"
+                                                          name="newAddress"
+                                                          placeholder="New Address"
+                                                          ng-blur="model.populateCityAndStateIfDlSel()"
+                                                          required>
+                                                <datalist id="addressList">
+                                                    <option ng-repeat="adr in model.addressFromAPI" value="{{adr.text}}">
+                                                </datalist>
+
+                                            </div>
+
+                                            <div class="form-group col-sm-6 col-xs-12">
+                                                <input ng-model="model.newCity"
+                                                       id="newCity"
+                                                       name="city"
+                                                       class="form-control" placeholder="City"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6 col-xs-12">
+                                                <select id="state"
+                                                        class="form-control wbdv-text-align-last-center"
+                                                        ng-model="model.newState"
+                                                        ng-init="model.newState = model.newState || model.states[0]"
+                                                        ng-options="option for option in model.states">
+
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-sm-6 col-xs-12">
+                                                <select ng-model="model.newCountry"
+                                                        id="country"
+                                                        name="country"
+                                                        class="form-control wbdv-text-align-last-center"
+                                                        ng-init="model.newCountry = model.newCountry||model.countries[0]"
+                                                        ng-options="option for option in model.countries">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+            <div class="wbdv-mar-bottom-60  wbdv-mar-top-25">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <a ng-click="model.purchase()" class="btn btn-success btn-block">ORDER</a>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                        <a href="#/user/searchResult" class="btn btn-danger  btn-block">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+        <nav class="navbar  navbar-fixed-bottom bg-primary" >
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="col-xs-12" >
+                        <a href="#/user/profile" class="wbdv-mar-right-5 pull-right">
+                            <span class="glyphicon glyphicon-user wbdv-text-clr-white navbar-text">
+                            </span>
+                        </a>
+                        <a ng-click="model.deleteUserProfile(model.user)" class="wbdv-mar-left-5 pull-left">
+                            <span class="glyphicon glyphicon-trash wbdv-text-clr-white navbar-text">
+                            </span>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>

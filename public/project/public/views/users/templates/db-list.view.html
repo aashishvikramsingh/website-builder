@@ -1,0 +1,78 @@
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid" >
+        <div  class="navbar-text navbar-link pull-left">
+            <a href="#/user/restaurant">
+                <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white" title="Back"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Delivery Personnals</span>
+        </div>
+        <div  class="navbar-text navbar-link pull-right hidden-xs">
+            <a href="#/user/restaurant/db/2">
+                <span class="wbdv-text-clr-white" title="Add New Delivery Personnal">Add New Delivery Personnal</span>
+            </a>
+        </div>
+        <div  class="navbar-text navbar-link pull-right visible-xs">
+            <a href="#/user/restaurant/db/2">
+                <span class="glyphicon glyphicon-plus wbdv-text-clr-white" title="Add New Delivery Personnal"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container wbdv-pageBackground">
+    <div class="blackContainer">
+        <div class="contentContainer">
+            <ul id="ownerRestaurantsRegistered" class="list-group">
+                <li class="list-group-item wbdv-bgSteelBl-clrBlack">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            Delivery Boys
+                        </div>
+
+                    </div>
+                </li>
+                <li ng-repeat="db in model.dbs" class="list-group-item wbdv-background-black">
+
+                    <div class="row">
+
+                        <div class="col-xs-8 pull-left">
+                            <span>{{db.firstName}} {{db.lastName}}</span>
+                        </div>
+
+
+                        <div class="col-xs-4 pull-right">
+
+                            <a ng-click="model.editdb(db._id)">
+                                <span class="glyphicon glyphicon-cog pull-right wbdv-text-clr-white" title="Edit">
+
+                                </span>
+                            </a>
+
+                        </div>
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary" >
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-xs-12" >
+                <a href="#/user/profile" class="wbdv-mar-right-5 pull-right">
+                        <span class="glyphicon glyphicon-user wbdv-text-clr-white navbar-text">
+                        </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

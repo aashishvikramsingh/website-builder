@@ -1,0 +1,128 @@
+    <nav class="navbar  navbar-fixed-top bg-primary">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-4 hidden-xs">
+                    <div class="navbar-text pull-left wbdv-mar-left-0">
+                        <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page"
+                           class="wbdv-text-clr-white">
+                            <span class="glyphicon glyphicon-chevron-left "></span>
+                        </a>
+                    </div>
+
+                    <div class="navbar-header">
+                        <span class="navbar-brand wbdv-text-clr-white">
+                            Pages
+                        </span>
+                    </div>
+
+                    <div class="navbar-text pull-right wbdv-mar-right-20">
+                        <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/new"
+                           class="wbdv-text-clr-white">
+                            <span class="glyphicon glyphicon-plus "></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-8 col-xs-12">
+
+                    <div class="navbar-text pull-right wbdv-mar-right-5">
+                        <a ng-click="model.addNewPage(model.page)" class="wbdv-text-clr-white">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    </div>
+
+                    <div class="navbar-text pull-left visible-xs wbdv-mar-left-0" >
+                        <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page"
+                           class="wbdv-text-clr-white">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+
+                    <div class="navbar-header pull-left">
+                        <span class="navbar-brand wbdv-text-clr-white">
+                            New Page
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 hidden-xs wbdv-one-third-col-hide-xs">
+                <ul class="list-group" >
+
+                     <li ng-repeat="page in model.pages" class="list-group-item">
+                        <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}" class="pull-right">
+                            <span class="glyphicon glyphicon-cog"> </span>
+                        </a>
+                        <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                            <span>{{page.name}}</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-8 pull-right wbdv-two-third-col">
+
+                <div ng-show="model.error" class="alert alert-danger" role="alert">
+                    {{model.error}}
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <label for="name-page-new" class="wbdv-req-field">Name:</label>
+                        <input ng-model="model.page.name"
+                               type="text" class="form-control"
+                               id="name-page-new"
+                               name="name"
+                               placeholder="Page Name"
+                                required/>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="tile-page-new" class="wbdv-req-field">Title:</label>
+                        <input ng-model="model.page.title"
+                                type="text" class="form-control"
+                               id="tile-page-new"
+                               name="description"
+                               placeholder="Page Title"
+                                required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name-page-descr" class="wbdv-req-field">Description:</label>
+                        <input ng-model="model.page.description"
+                               type="text" class="form-control"
+                               id="name-page-descr"
+                               name="Description"
+                               placeholder="Page Description"
+                               required/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <nav class="navbar  navbar-fixed-bottom bg-primary">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 wbdv-mar-right-5" >
+                    <a href="#/users/{{model.userId}}" class="pull-right">
+                        <span class="glyphicon glyphicon-user navbar-text wbdv-text-clr-white">
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+

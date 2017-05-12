@@ -1,0 +1,24 @@
+
+<div>
+    <form>
+        <div>
+            <label for="name">Name:</label>
+            <input ng-model="model.widget.name"  id="name" class="form-control"/>
+            <label for="text">Text:</label>
+            <input ng-model="model.widget.text" id="text" class="form-control"/>
+            <label for="rows">Rows:</label>
+            <input ng-model="model.widget.rows" id="rows" class="form-control" type="number" min='1' />
+            <label for="placeholder">Placeholder:</label>
+            <input ng-model="model.widget.placeholder" id="placeholder" class="form-control"/>
+            <label for="formatted">Formatted:</label>
+            <input ng-model="model.widget.formatted" id="formatted" type="checkbox"/>
+        </div>
+
+
+
+        <div ng-if="model.mode=='EDIT'" class="wbdv-mar-bottom-60">
+            <a ng-click="model.deleteWidget()" class="btn-danger btn-block btn">Delete</a>
+        </div>
+
+    </form>
+</div>

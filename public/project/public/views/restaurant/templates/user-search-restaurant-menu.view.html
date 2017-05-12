@@ -1,0 +1,193 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="col-sm-12 " >
+            <div class="navbar-brand pull-left">
+                <a ng-click="model.navigateBack()" class = "wbdv-text-clr-white">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-brand pull-right ">
+                <a ng-click="model.checkOut()">
+                    <span class="glyphicon  glyphicon-shopping-cart wbdv-text-clr-white"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header ">
+
+                <a class="navbar-brand wbdv-text-clr-white wbdv-prevent-overflow">{{model.restaurantName}}</a>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+
+
+<div class="container wbdv-pageBackground wbdv-mar-bottom-60 wbdv-bgclrLighSlateGrey">
+
+
+    <div class="blackContainer">
+        <div class="alert alert-danger wbdv-register-msg" ng-show="model.error">
+            {{model.error}}
+        </div>
+
+
+        <div class="contentContainer">
+
+            <div ng-repeat="mn in model.menu">
+
+                <div  class="row wbdv-pad-left-15 wbdv-mar-top-5 wbdv-menu-tab">
+                    <div  data-toggle="collapse" data-target="#{{mn.apiKey}}"
+                          class="wbdv-text-clr-white wbdv-menu-name">{{mn.name}}</div>
+
+                </div>
+
+                <div id={{mn.apiKey}}  class="row wbdv-mar-top-3 collapse">
+                    <ul class="list-group">
+                        <li class="list-group-item wbdv-background-black" ng-repeat="item in mn.items ">
+                            <div class="row wbdv-height-auto">
+
+                                <div class="col-xs-12 col-sm-12" data-toggle="collapse"
+                                     data-target="#{{ item.apiKey}}" pull-left>
+                                    <div class="row wbdv-text-clr-white">
+                                        <div class="col-xs-8 col-sm-6 pull-left">
+                                            {{item.name}}
+                                        </div>
+                                        <div class="col-xs-4 col-sm-6 pull-right wbdv-rec-entry">
+                                            {{item.basePrice}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div  id ="{{item.apiKey}}" class="collapse row container
+                                                                    wbdv-mar-top-10 wbdv-mar-left-5
+                                                                     wbdv-mar-right-5">
+                                    <div class="col-xs-6 col-sm-4 pull-right">
+                                        <div class="col-xs-2 col-sm-1 pull-left wbdv-width-30">
+                                            <a ng-click="model.increaseItemCount(item.apiKey, item.name, item.basePrice)">
+                                                <span class="glyphicon glyphicon-plus-sign wbdv-text-clr-white
+                                                              pull-left wbdv-menu-plus-minus-gly"></span>
+                                            </a>
+                                        </div>
+
+                                        <div  id = "{{'count-'+item.apiKey}}"
+
+                                              class="col-xs-2 col-sm-2 wbdv-text-clr-white pull-right wbdv-width-30">
+
+                                        </div>
+
+
+                                        <div class="col-xs-2 col-sm-1 pull-right wbdv-width-30">
+                                            <a ng-click="model.decreaseItemCount(item.apiKey, item.name, item.basePrice)">
+                                                <span class="glyphicon glyphicon-minus-sign
+                                                 pull-right wbdv-text-clr-white wbdv-menu-plus-minus-gly">
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div ng-if="model.partner">
+
+    <div class="container wbdv-pageBackground wbdv-mar-bottom-60 wbdv-bgclrLighSlateGrey">
+
+        <div class="blackContainer">
+            <div class="alert alert-danger wbdv-register-msg" ng-show="model.error">
+                {{model.error}}
+            </div>
+            <div class="contentContainer">
+
+                <div ng-repeat="category in model.result">
+
+                    <div  class="row wbdv-pad-left-15 wbdv-mar-top-5 wbdv-menu-tab">
+                        <div  data-toggle="collapse" data-target="#{{category.group}}"
+                              class="wbdv-text-clr-white wbdv-menu-catGrp">{{category.group}}</div>
+
+                    </div>
+
+                    <div id={{category.group}} class="row wbdv-mar-top-3 collapse">
+                        <ul class="list-group">
+                            <li class="list-group-item wbdv-background-black" ng-repeat="entries in category.entry">
+                                <div class="row wbdv-height-auto">
+
+                                    <div class="col-xs-12 col-sm-12"
+                                         data-toggle="collapse"
+                                         data-target="#{{entries[2]}}" pull-left>
+                                        <div class="row wbdv-text-clr-white">
+                                            <div class="col-xs-8 col-sm-6 pull-left">
+                                                {{entries[0]}}
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6 pull-right wbdv-rec-entry">
+                                                {{entries[1]}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div  id ="{{entries[2]}}" class="collapse row
+                                                                      container wbdv-mar-top-10
+                                                                      wbdv-mar-left-5 wbdv-mar-right-5">
+                                        <div class="col-xs-6 col-sm-4 pull-right">
+                                            <div class="col-xs-2 col-sm-1 pull-left wbdv-width-30" >
+                                                <a ng-click="model.increaseItemCount(entries[2],entries[0], entries[1])">
+                                                    <span class="glyphicon glyphicon-plus-sign
+                                                                 wbdv-text-clr-white pull-left wbdv-menu-plus-minus-gly">
+
+                                                    </span>
+                                                </a>
+                                            </div>
+
+                                            <div  id = "{{'count-'+ entries[2]}}"
+                                                  class="col-xs-2 col-sm-2 wbdv-text-clr-white pull-right wbdv-width-30">
+
+                                            </div>
+
+
+                                            <div class="col-xs-2 col-sm-1 pull-right wbdv-width-30">
+                                                <a ng-click="model.decreaseItemCount(entries[2],entries[0], entries[1])">
+                                                    <span  class="glyphicon glyphicon-minus-sign
+                                                                  pull-right wbdv-text-clr-white
+                                                                   wbdv-menu-plus-minus-gly"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary" >
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-xs-12" >
+                <a href="#/user/profile" class="wbdv-mar-right-5 pull-right">
+                        <span class="glyphicon glyphicon-user wbdv-text-clr-white navbar-text">
+                        </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

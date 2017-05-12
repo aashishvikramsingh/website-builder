@@ -1,0 +1,83 @@
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid" >
+        <div  class="navbar-text navbar-link pull-left">
+            <a href="#/user/restaurant/{{model.restaurantId}}/menu">
+                <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white" title="Back"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Add New Item </span>
+        </div>
+
+        <div  class="navbar-text navbar-link pull-right hidden-xs">
+            <a ng-click="model.createMenu(model.menu)">
+                <span class="wbdv-text-clr-white" title="Save">Save Item</span>
+            </a>
+        </div>
+
+        <div  class="navbar-text navbar-link pull-right visible-xs">
+            <a ng-click="model.createMenu(model.menu)">
+                <span class="glyphicon glyphicon-ok wbdv-text-clr-white" title="Save Item"></span>
+            </a>
+        </div>
+
+
+    </div>
+</nav>
+
+<div class="container wbdv-pageBackground">
+    <div class="blackContainer">
+        <div class="contentContainer">
+
+            <form>
+                <div class="wbdv-menu-container">
+
+                    <div>
+                        <label for="item" class="wbdv-req-field">Name of the Item:</label>
+                        <input id="item" ng-model="model.menu.itemName" class="form-control">
+                    </div>
+                    <div>
+                        <label for="price" class="wbdv-req-field wbdv-mar-top-5">Price per unit:</label>
+                        <input id="price" ng-model="model.menu.price"
+                               class="form-control" type="number" min='1'
+                               placeholder="price">
+                    </div>
+                    <div>
+                        <label for="category" class="wbdv-req-field wbdv-mar-top-5">Category:</label>
+                        <input id="category" ng-model="model.menu.category"
+                               class="form-control" type="text"
+                               placeholder="starter, dessert, etc.">
+                    </div>
+                </div>
+            </form>
+
+
+            <div  class="wbdv-mar-bottom-60 wbdv-pad-left-right wbdv-mar-top-25">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <a ng-click="model.createMenu(model.menu)" class="btn btn-success btn-block">Create</a>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                        <a href="#/user/restaurant/{{model.restaurantId}}/menu"
+                           class="btn btn-danger  btn-block">Cancel</a>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary" >
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-xs-12" >
+                <a href="#/user/profile" class="wbdv-mar-right-5 pull-right">
+                        <span class="glyphicon glyphicon-user wbdv-text-clr-white navbar-text">
+                        </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

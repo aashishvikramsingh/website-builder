@@ -1,0 +1,125 @@
+    <nav class="navbar  navbar-fixed-top bg-primary">
+        <div class="container-fluid" >
+
+            <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+                    <span class="navbar-brand wbdv-text-clr-white "> Profile </span>
+            </div>
+            <div  class="navbar-text navbar-link pull-right">
+                    <a ng-click="model.modifyUser(model.user)">
+                        <span class="glyphicon glyphicon-ok wbdv-text-clr-white"></span>
+                    </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid wbdv-profile-content wbdv-mar-top-25">
+
+
+        <div ng-show="model.message" class="alert alert-success" role="alert" >
+            {{model.message}}
+        </div>
+
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+
+
+        <form name="profilePage">
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input ng-model="model.user.username"
+                       ng-disabled="model.user.username"
+                       type="text" class="form-control"
+                       id="username"
+                       value="aashishsingh"
+                       placeholder="Username"/>
+            </div>
+
+            <div class="form-group">
+                <label for="password"  class="wbdv-req-field">Password:</label>
+                <input ng-model="model.user.password"
+                       type="password" class="form-control"
+                       id="password"
+                       name="password"
+                       value="Singh"
+                       placeholder="Password"
+                       required/>
+            </div>
+
+            <div class="form-group">
+                <label for="email"  class="wbdv-req-field">Email address:</label>
+                <input ng-model="model.user.email"
+                       type="email" class="form-control"
+                       id="email"
+                       value="singh.aa@husky.neu.edu"
+                       placeholder="Email Id"/>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName" class="wbdv-req-field">First Name:</label>
+                <input ng-model="model.user.firstName"
+                        type="text" class="form-control"
+                       id="firstName"
+                       name="firstName"
+                       value="Aashish Vikram"
+                       placeholder="First Name"
+                       required/>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName"  class="wbdv-req-field">Last Name:</label>
+                <input ng-model="model.user.lastName"
+                        type="text" class="form-control"
+                       id="lastName"
+                       name="lastName"
+                       value="Singh"
+                       placeholder="Last Name"
+                        required/>
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="wbdv-req-field">Phone:</label>
+                <input ng-model="model.user.phone"
+
+                       type="text" class="form-control"
+                       id="phone"
+                       placeholder="Phone"/>
+            </div>
+
+            <div class="form-group">
+                <label for="dateCreated">Date Created</label>
+                <input ng-model="model.user.dateCreated"
+                       ng-disabled="model.user.dateCreated"
+                       type="text" class="form-control"
+                       id="dateCreated"
+                       placeholder="Date Created"/>
+            </div>
+
+            <a href="#/users/{{model.user._id}}/website" class="btn btn-primary btn-block form-control">Websites</a>
+            <a ng-click="model.modifyUser(model.user)" class="btn btn-success btn-block form-control">Update</a>
+            <a href="#/login" class="btn btn-danger  btn-block">Logout</a>
+
+        </form>
+    </div>
+
+
+
+    <nav class="navbar  navbar-fixed-bottom bg-primary" >
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-xs-12" >
+                    <a href="#/users/{{model.user._id}}" class="wbdv-mar-right-5 pull-right">
+                        <span class="glyphicon glyphicon-user wbdv-text-clr-white navbar-text">
+                        </span>
+                    </a>
+                    <a ng-click="model.deleteUserProfile(model.user)" class="wbdv-mar-left-5 pull-left">
+                        <span class="glyphicon glyphicon-trash wbdv-text-clr-white navbar-text">
+                        </span>
+                    </a>
+                 </div>
+
+
+            </div>
+        </div>
+    </nav>

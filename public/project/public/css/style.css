@@ -1,0 +1,965 @@
+.wbdv-sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.wbdv-margin-bottom{
+    margin-bottom: 0px;
+}
+
+.wbdv-menu-tab{
+    background-color: chocolate;
+    height: auto;
+}
+
+.wbdv-menu-name{
+    font-size: x-large;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.wbdv-rec-entry{
+    width: 50px;
+    text-align: justify;
+    margin-right: 5px;
+}
+
+.wbdv-menu-plus-minus-gly{
+    margin:0px;
+    padding: 0px;
+    font-size: 20px;
+}
+
+.wbdv-height-auto{
+    height: auto;
+}
+
+.wbdv-menu-catGrp{
+    font-size: x-large;
+    font-weight: bold;
+    color: whitesmoke
+}
+
+.wbdv-bgclrLighSlateGrey{
+    background-color:lightslategray;
+}
+
+.wbdv-bgClrGray{
+    background-color: gray;
+}
+
+.wbdv-assign-button{
+  margin-bottom:10px;
+    background-color: steelblue;
+
+}
+
+.wbdv-sendGlyphicon{
+    color: red;font-size: 25px;
+}
+
+.wbdv-deliveredGlyphicon{
+    color: green;font-size: 25px;
+}
+
+.wbdv-pendingGlyphicon{
+    color: yellow;font-size: 25px;
+}
+
+.wbdv-font-size-25{
+    font-size: 25px;
+}
+
+.wbdv-fontLar-mar-left-15{
+    margin-left:15px;
+    font-size: larger;
+}
+
+.wbdv-clr-black{
+    color: black;
+}
+
+.wbdv-display-block{
+    display: block;
+}
+
+
+.wbdv-amountEntry{
+
+    background-color:rgb(79, 84, 40) ;
+    color: black;
+    font-size: 15px;
+}
+
+.wbdv-rest-list-header{
+    background-color:rgb(118,151,204);
+}
+
+.wbdv-sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.wbdv-sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.wbdv-sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.nav-pills li.active a, .nav-pills li.active a:focus, .nav-pills li.active a:hover{
+    background-color: steelblue;
+}
+
+.dropdown-menu li a{
+    color: white !important;
+}
+
+
+.dropdown-menu li a:hover{
+    color: black !important;
+}
+
+input{
+    text-align: center;
+    border-radius:10px;
+}
+
+.blackContainer{
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-bottom: 100px;
+
+}
+
+.wbdv-blackContainerForTabs{
+    height: auto;
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+    margin-bottom: 100px;
+
+}
+
+.wbdv-blackContainerList{
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.7);
+}
+.wbdv-speciality-remove{
+    position: relative;
+    right: 35px;
+    font-size: 30px;
+    top: 10px;
+}
+
+.wbdv-pad-0{
+padding: 0px;
+}
+
+.wbdv-text-align-center{
+ text-align: center;
+}
+
+.wbdv-text-align-last-center{
+    text-align-last: center;
+}
+
+.wbdv-register-font{
+   font-size: 20px;
+    font-weight: bold;
+}
+
+.wbdv-bgSteelBl-clrBlack{
+    color: black;
+    background-color: steelblue;
+}
+
+.wbdv-mar-top-15-mar-right-15{
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.wbdv-register-msg{
+    position: fixed;
+    z-index:10;
+}
+
+.wbdv-clrWhtSmoke-font-25{
+    color: whitesmoke;
+    font-size: 25px;
+}
+
+.wbdv-mar-top-15-right-10{
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.wbdv-mar-top-30-rgba{
+    margin-top: 30px;
+    background: rgba(123,55,44,0.1);
+}
+
+.wbdv-pad-top-25{
+    padding-top: 25px;
+}
+
+.wbdv-font-wt-900{
+    font-weight: 900;
+}
+
+.wbdv-mar-left-15{
+    margin-left: 15px;
+}
+
+.wbdv-tot-span{
+    padding-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+.wbdv-pad-right-25{
+    padding-right: 25px;
+}
+
+.wbdv-font-lg{
+    font-size: larger;
+}
+
+.wbdv-avail-true{
+    color: white !important;
+    font-weight: bolder;
+}
+
+.wbdv-avail-false{
+    color: red !important;
+    font-weight: bolder;
+}
+
+.wbdv-pad-left-30{
+    padding-left: 30px;
+}
+
+.wbdv-expand{
+    padding-top: 2px;
+    padding-right: 4px;
+}
+
+.wbdv-pad-left-24{
+    padding-left: 24px;
+}
+
+
+.wbdv-left-margin-52
+{
+    margin-left: 52px;
+}
+
+.wbdv-rest-header{
+    border-bottom: solid 1px white;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+
+/*.contentContainer{*/
+    /*padding-right:35px;*/
+    /*padding-left:35px;*/
+    /*padding-top: 10px;*/
+    /*padding-bottom: 20px;*/
+/*}*/
+
+.wbdv-pageHeading{
+    color: #ffffff;
+    text-align: center;
+}
+
+.wbdv-button-centre{
+    margin-left:75px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.search-bar-margin{
+    margin-top: -30px;
+    margin-right:20px
+}
+
+.search-bar-pad{
+    padding-top: 9px;
+
+}
+
+
+/*.level-search-result{*/
+    /*padding-top: 50px;*/
+    /*!*margin-top: 25px;*!*/
+    /*background-color: whitesmoke;*/
+/*}*/
+
+.wbdv-rating{
+    /*margin-top: 1px;*/
+    /*margin-right: 18px;*/
+    background-color:orange;
+    font-weight: bold;
+
+}
+
+.wbdv-filtermenudiv{
+    /*border-style: solid;*/
+    /*border-color: red;*/
+    border-style: groove;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    /*background-color: rgb();*/
+    background: rgba(0, 0, 0, 0.6);
+
+}
+
+
+.wbdv-menudiv{
+    /*border-style: solid;*/
+    /*border-color: red;*/
+    border-style: groove;
+    margin-bottom: 15px;
+    border-radius: 10px;
+
+
+
+}
+
+.wbdv-hotelnamebrand{
+    /*color: black;*/
+    color: orangered !important;
+    font-weight: bold;
+    font-family: Calibri;
+    font-size: x-large;
+}
+
+.wbdv-hotelname{
+    /*color: black;*/
+    color: #ffffff;
+    font-weight: bold;
+    font-family: Calibri;
+    font-size: x-large;
+}
+
+
+.wbdv-tagline{
+    /*color: black;*/
+    /*font-color: darkred;*/
+    color: whitesmoke;
+    font-weight: bold;
+
+    /*font-size: x-large;*/
+}
+
+
+
+.wbdv-filter-headings{
+    color: grey;
+    /*font-family: "Californian FB";*/
+    font-size: large;
+    font-weight: bold;
+    margin-left: 20px;
+    color: white;
+}
+
+.wbdv-filter-items{
+
+    color: white;
+    /*font-family: "sans-serif";*/
+    margin:5px;
+    margin-left: 40px;
+}
+
+.wbdv-viewmenu
+{
+    text-align: center;
+    font-size: large;
+
+}
+
+.wbdv-text-algn-left{
+    text-align: left;
+}
+
+.wbdv-alert-no-rest-found{
+    color: red;
+    height: 150px;
+    width: 100%;
+    text-align: center;
+}
+
+.wbdv-format-no-rest-found{
+     padding-top:40px;
+    font-size: larger;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.wbdv-history-glyph{
+   margin-left:5px;
+    font-size: larger;
+}
+
+.wbdv-display-none{
+  display: none;
+}
+
+.wbdv-border-bottom{
+    border-bottom: double;
+}
+
+.wbdv-leftinfotext{
+    /*color: grey;*/
+    color: #ffffff;
+    font-size: small;
+}
+.wbdv-rightinfotext{
+    /*color: black;*/
+    color: #ffffff;
+    font-size: small;
+}
+/*--------------------------------------------------------------------------------------------*/
+/*Pratik*/
+
+.wbdv-prevent-overflow{
+    word-wrap: break-word;
+}
+
+.wbdv-mySlides {display:none;}
+
+.wbdv-landscape {
+    /*height: 30px;*/
+    /*width: 80px;*/
+
+    width: 50% ; height: 50%;
+}
+
+.wbdv-req-field:after{
+    content:" *";
+    color: red;
+}
+
+
+#Register[title]:hover:after{
+    content: 'Register';
+    color: white;
+    position: absolute;
+    left: 5%;
+    top: 20px;}
+
+#LogIn[title]:hover:after{
+    content: 'LogIn';
+    color: white;
+    position: absolute;
+    left: 5%;
+    top: 20px;}
+
+.wbdv-head-new-wid{
+    background-color: darkgrey !important;
+    text-align: center !important;
+}
+
+
+input.form-control {
+    margin-bottom: 5px;
+}
+
+.btn{
+    margin-top:5px;
+    border-radius: 5px;
+    height: 50px;
+    padding: 1em;
+}
+
+.navbar{
+    background-color: black;
+
+}
+
+
+
+body {
+    /*padding-top: 36px;*/
+    /*background-color: black;*/
+
+}
+#mainPage{
+    /*background-image:url(../images/10.jpg);*/
+    /*background-size: cover;*/
+}
+
+.wbdv-rest-logo{
+    border: 1px hidden #ddd;
+    border-radius: 4px;
+    /*padding: 5px;*/
+    width: 50px;
+
+}
+
+
+
+.wbdv-menu-logo{
+    border: 1px hidden #ddd;
+    border-radius: 4px;
+    /*padding: 5px;*/
+    width: 100%;
+    height: 200px;
+
+}
+
+
+.wbdv-rest-menu{
+    /*border: 1px hidden #ddd;*/
+    /*border-radius: 4px;*/
+    /*padding: 5px;*/
+    width: 60px;
+    /*height: 60px;*/
+    margin-right: -1px;
+    margin-top: 0px;
+
+
+}
+
+.wbdv-checkout-item-lst{
+    background-color:rgb(189, 195, 199);
+    color: black;
+}
+
+.wbdv-checkout-header{
+    height: 60px;
+    font-size: x-large;
+}
+
+.wbdv-checkout-cont-format{
+    width: 100%;
+    top: 50%;
+    left: 50%;
+}
+
+.wbdv-tot-bg{
+    background-color:rgb(30, 139, 195);
+    height: 60px;
+}
+/*.inlineblock {*/
+    /*display: inline-block;*/
+    /*zoom: 1;*/
+    /*!*display*: inline; !* ie hack *!*!*/
+    /*!*background-color: #f0f;*!*/
+    /*width: 50%;*/
+/*}*/
+
+.wbdv-pageBackgroundlogin{
+    background: url("../images/8.jpeg");
+    background-size: cover;
+    position: absolute;
+    top:0;
+    left:0;
+    min-width: 100%;
+    min-height: 100%;
+    /*margin-top: 50px;*/
+}
+.wbdv-searchResultPageBackground {
+
+    background: url('../images/redBackground.gif');
+    /*background-size: cover;*/
+    position: absolute;
+    top:0;
+    left:0;
+    min-width: 100%;
+    min-height: 100%;
+    /*margin-top: 50px;*/
+    /*color: #ffffff;*/
+}
+
+.wbdv-searchPageBlackContainer{
+
+    margin-top: 0px;
+    background: rgba(0, 0, 0, 0.7);
+
+}
+
+.wbdv-pageBackground {
+
+    background: url('../images/redBackground.gif');
+    background-size: cover;
+    position: absolute;
+    top:0;
+    left:0;
+    min-width: 100%;
+    min-height: 100%;
+    margin-top: 50px;
+    color: #ffffff;
+}
+
+.wbdv-adminPageBackground{
+    background-color: black;
+    position: absolute;
+    top:0;
+    left:0;
+    min-width: 100%;
+    min-height: 100%;
+    margin-top: 50px;
+    color: #ffffff;
+
+}
+
+#homePage{
+    background-image:url(../images/1.jpg);
+    background-size: cover;
+}
+
+
+#ownerRegistration{
+    /*background-image:url(../images/1.jpg);*/
+    /*background-repeat: no-repeat;*/
+    /*background-color: black;*/
+    /*!*rgba(255,0,0,0.4)*!*/
+    /*opacity: 0.8;*/
+
+    margin-bottom: 20px;
+
+}
+
+#userRegistration{
+    /*background-image:url(../images/1.jpg);*/
+    /*background-repeat: no-repeat;*/
+    /*background-color: black;*/
+    /*!*rgba(255,0,0,0.4)*!*/
+    /*opacity: 0.8;*/
+    margin-bottom: 20px;
+
+}
+
+.active{
+    color: white;
+}
+
+
+select{
+    width: 100%;
+    max-width: 100%;
+}
+
+input[type="checkbox"]{
+    width: 30px;
+    height: 30px;
+}
+
+.wbdv-profile-content{
+    margin-bottom:60px;
+    margin-top:30px;
+
+}
+
+.wbdv-mar-top-50{
+    margin-top: 50px;
+
+}
+
+
+.wbdv-mar-top-65{
+    margin-top: 65px;
+
+}
+
+.wbdv-mar-right-10{
+    margin-right: 10px;
+}
+
+.wbdv-img-wid100-hgt100{
+    width: 100px;
+    height: 100px;
+}
+
+.wbdv-clr-red{
+    color: red;
+}
+
+.wbdv-height-35{
+    height: 35px;
+}
+
+.wbdv-mar-left-5{
+    margin-right: 5px;
+}
+
+.wbdv-mar-left-3{
+    margin-left: 3px;
+}
+
+.wbdv-remove-font{
+    font-size: larger;
+    color: red;
+}
+
+.wbdv-background-black{
+    background-color: black !important;
+    background-image: none;
+}
+
+.wbdv-bgWhite-clrBlack{
+   background-color: white;
+    color:black;
+}
+
+.wbdv-width-50{
+    width: 50px;
+}
+
+.wbdv-width-30{
+    width: 30px;
+}
+
+.wbdv-mar-top-3{
+    margin-top: 3px;
+}
+
+.wbdv-mar-top-5{
+    margin-top: 5px;
+}
+
+.wbdv-mar-top-10{
+    margin-top: 10px;
+}
+
+.wbdv-mar-top-15{
+    margin-top: 15px;
+}
+
+.wbdv-mar-top-25{
+    margin-top:25px;
+    padding-top:36px;
+}
+
+
+.wbdv-mar-right-5{
+
+    margin-right: 5px;
+}
+
+.wbdv-text-clr-white{
+    color: #ffffff !important;
+
+}
+
+.wbdv-remove-bullets{
+    list-style: none;
+}
+
+.wbdv-pad-contents{
+    padding-top: 5px;
+}
+
+.wbdv-pad-left-10{
+    padding-left: 10px;
+}
+
+.wbdv-pad-left{
+    padding-left: 50px;
+}
+
+.wbdv-pad-left-15{
+    padding-left: 15px;
+}
+
+.wbdv-pad-right{
+    padding-right: 50px;
+}
+
+
+
+.wbdv-pad-right-0{
+    padding-right: 0px;
+}
+
+
+.wbdv-mar-left-0{
+    margin-left:0px;
+}
+
+.wbdv-mar-left-10{
+    margin-left:10px;
+}
+
+.wbdv-mar-left-30{
+    margin-left:30px;
+}
+
+.wbdv-mar-right-0{
+    margin-right:0px;
+}
+
+.wbdv-mar-right-20{
+    margin-right:20px;
+}
+
+.wbdv-mar-bottom-60{
+    margin-bottom:60px;
+}
+
+.wbdv-mar-bottom-10{
+    margin-bottom:10px;
+}
+
+
+.wbdv-mar-bottom-20{
+    margin-bottom:20px;
+}
+
+.wbdv-mar-bottom-30{
+    margin-bottom:30px;
+}
+
+.wbdv-mar-bottom-5{
+    margin-bottom:5px;
+}
+
+.wbdv-mar-right-x{
+    margin-right:10px;
+}
+
+.wbdv-mar-right-15{
+    margin-right:15px;
+}
+
+.wbdv-align-user{
+    margin-right:50px;
+    margin-left:50px;
+    padding-right:15px;
+    padding-left:15px;
+    margin-top:25px;
+}
+
+.wbdv-pad-left-2{
+    padding-left: 2px;
+}
+
+.wbdv-rest-wrk-hrs{
+    display: block;
+    padding-left: 10px;
+    text-align-last: center;
+    color: black
+}
+
+.wbdv-pad-left-right{
+    padding-right:35px;
+    padding-left:15px;
+
+}
+
+.wbdv-menu-container{
+    width: 100%;
+    top: 50%;
+    left: 50%;
+}
+
+.glyphicon.glyphicon-remove-circle{
+    font-size: 30px;
+}
+
+.wbdv-one-third-col-hide-xs{
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    margin-top: 50px;
+    padding-top: 25px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+}
+
+.wbdv-two-third-col{
+    margin-top:10px;
+    padding-top:20px;
+    margin-bottom:60px;
+    overflow-y: auto;
+}
+
+.wbdv-toolbar {
+    position: relative;
+    right: 40px;
+    top:10px;
+
+    padding-left: 5px;
+    padding-bottom: 5px;
+
+}
+
+a{
+    text-decoration: none !important;
+    cursor:pointer;
+}
+
+.webdev-gly-mar-right{
+    margin-right: 15px;
+}
+
+.navbar-text{
+    margin-right: 15px;
+}
+
+.wbdv-pad-left-0{
+    padding-left:0px;
+}
+
+.wbdv-overflow-vertical{
+    overflow-y: auto;
+}
+

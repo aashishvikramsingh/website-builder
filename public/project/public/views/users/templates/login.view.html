@@ -1,0 +1,83 @@
+
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid" >
+
+
+        <!--<div class="navbar-header dropdown visible-xs">-->
+        <div class="dropdown">
+            <div  class=" dropdown-toggle pull-right wbdv-mar-top-15-right-10" data-toggle="dropdown">
+                <span class="fa fa-user-plus fa-lg"></span>
+            </div>
+            <ul class="dropdown-menu pull-right wbdv-mar-top-30-rgba">
+                <li><a ng-click="model.registerUser(1)" class=" wbdv-text-clr-white" title="Register Owner">Register Owner</a></li>
+                <li><a ng-click="model.registerUser(0)" class=" wbdv-text-clr-white" title="Register User">Register User</a></li>
+            </ul>
+
+
+        </div>
+
+    </div>
+</nav>
+
+
+
+
+<div class="container wbdv-pageBackgroundlogin" id="loginPage" >
+
+    <div  class="container">
+
+
+
+        <div class="blackContainer  container contentContainer wbdv-mar-top-65">
+
+            <div  ng-show="model.message" class="alert alert-success wbdv-register-msg" role="alert" >
+                {{model.message}}
+            </div>
+
+            <div ng-show="model.error" class="alert alert-danger wbdv-register-msg" role="alert">
+                <div ng-repeat="e in model.error">
+                    {{e}}
+                </div>
+
+            </div>
+
+            <h1 class="wbdv-pageHeading" >Login</h1>
+            <div class="form-group">
+                <input ng-model="user.username" type="text"
+                       id="username"
+                       class="form-control"
+                       placeholder="username"
+                       required/>
+            </div>
+
+            <div class="form-group">
+                <input ng-model="user.password"
+                       id="password"
+                       type="password"
+                       class="form-control"
+                       placeholder="password"
+                       required/>
+            </div>
+
+
+            <div class="wbdv-mar-top-3">
+                <a ng-click="model.login(user)"
+                   class="btn btn-success btn-block wbdv-mar-top-5">Login</a>
+
+                <a href="auth/google" class="btn btn-danger btn-block">
+                    <span class="fa fa-google-plus"></span>
+                    Google
+                </a>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+

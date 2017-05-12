@@ -1,0 +1,129 @@
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid" >
+
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Restaurants</span>
+        </div>
+        <div  class="navbar-text navbar-link pull-right visible-xs">
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out wbdv-text-clr-white" title="Log Out"></span>
+            </a>
+        </div>
+        <div  class="navbar-text navbar-link pull-right visible-xs wbdv-pad-right-25">
+            <a href="#/user/profile">
+                <span class=" glyphicon glyphicon-user wbdv-text-clr-white" title="Profile"></span>
+            </a>
+        </div>
+
+        <div  class="navbar-text navbar-link pull-right visible-xs">
+            <a href="#/user/restaurant/new" class="wbdv-pad-right-25">
+                <span class="wbdv-text-clr-white glyphicon glyphicon-plus-sign" title="Add Restaurant"></span>
+            </a>
+
+        </div>
+
+
+
+        <div  class="navbar-text navbar-link pull-right hidden-xs">
+            <a ng-click="model.logout()">
+                <span class="wbdv-text-clr-white glyphicon glyphicon-log-out" title="Log Out"></span>
+            </a>
+        </div>
+        <div  class="navbar-text navbar-link pull-right hidden-xs">
+            <a href="#/user/profile">
+                <span class="wbdv-text-clr-white glyphicon glyphicon-user wbdv-pad-right-25" title="Profile"></span>
+            </a>
+        </div>
+
+        <div  class="navbar-text navbar-link pull-right hidden-xs">
+            <a href="#/user/restaurant/new" class="wbdv-pad-right-25">
+                <span class="wbdv-text-clr-white" title="Add Restaurant">Add Restaurant</span>
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container wbdv-pageBackground">
+
+    <div class="blackContainer">
+        <div class="contentContainer wbdv-prevent-overflow">
+
+        <ul id="ownerRestaurantsRegistered" class="list-group">
+
+            <li class="list-group-item wbdv-clr-black wbdv-rest-list-header">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-7 pull-left">
+                        Restaurants
+                    </div>
+
+                    <div class="col-xs-6 col-sm-2 hidden-xs">
+                        Menu
+                    </div>
+
+
+                    <div class="col-xs-6 col-sm-3 hidden-xs">
+                        Delivery Personnal
+                    </div>
+
+                </div>
+            </li>
+            <li ng-repeat="restaurant in model.restaurants" class="list-group-item wbdv-background-black">
+                <div class="row">
+                    <a ng-click="model.gotoOrder(restaurant._id)">
+                        <div class="col-xs-6 pull-left wbdv-prevent-overflow wbdv-text-clr-white">
+                            <span>{{restaurant.name}}</span>
+                        </div>
+                    </a>
+
+                    <div class="col-xs-6 pull-left ">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3 pull-right ">
+                                <a ng-click="model.gotoEdit(restaurant._id)">
+                                    <span class="glyphicon glyphicon-cog  pull-right wbdv-text-clr-white"></span>
+                                </a>
+                            </div>
+
+
+                            <div class="col-xs-1 col-sm-3 pull-left">
+                                <a  ng-click="model.gotoMenu(restaurant._id)">
+                                    <span class="glyphicon glyphicon-pencil pull-right wbdv-text-clr-white"
+                                          title="Customer Review"></span>
+                                </a>
+                            </div>
+
+
+
+                            <div class="col-xs-1 col-sm-2 pull-right">
+                                <a ng-click="model.gotoDeliveryBoy(restaurant._id)">
+
+                                    <i class="fa fa-motorcycle wbdv-text-clr-white wbdv-pad-right-25"
+                                       title="Delivery Boys" aria-hidden="true"></i>
+
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary" >
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-xs-12" >
+                <a class="wbdv-mar-right-5 pull-right">
+                        <span class=" wbdv-text-clr-white navbar-text">
+                        </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

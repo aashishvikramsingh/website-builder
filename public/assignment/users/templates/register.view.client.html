@@ -1,0 +1,72 @@
+
+
+    <div class="container">
+        <h1>Register</h1>
+
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+
+        <form name="registrationForm">
+        <label for="regUser" class="wbdv-req-field" >Username:</label>
+        <input ng-model="user.regUser"
+               id="regUser"
+               name="regUser"
+               type="text"
+               class="form-control"
+               placeholder="username"/>
+
+        <label for="regPassword" class="wbdv-req-field">Password:</label>
+        <input ng-model="user.regPassword"
+                id="regPassword"
+               name="regPassword"
+               type="password"
+               class="form-control"
+               placeholder="password"/>
+
+        <label for="regPassword2" class="wbdv-req-field">Verify Password:</label>
+        <input ng-model="user.regPassword2"
+               id="regPassword2"
+               name="regPassword2"
+                type="password"
+               class="form-control"
+               placeholder="verify password"/>
+
+        <label for="fname" class="wbdv-req-field">First Name:</label>
+        <input ng-model="user.fname"
+               id="fname"
+               name="fname"
+               type="text"
+               class="form-control"
+               placeholder="First Name" required/>
+
+        <label for="lname" class="wbdv-req-field">Last Name:</label>
+        <input ng-model="user.lname"
+                id="lname"
+               name="lname"
+                type="text"
+               class="form-control"
+               placeholder="Last Name" required/>
+
+        <label for="email" class="wbdv-req-field">Email:</label>
+        <input ng-model="user.email"
+                id="email"
+               name="email"
+                type="email"
+               class="form-control"
+               placeholder="Email"/>
+        </form>
+
+        <label for="phone" class="wbdv-req-field">Phone:</label>
+        <input ng-model="user.phone"
+               id="phone"
+               name="phone"
+               type="text"
+               class="form-control"
+               placeholder="Phone"/>
+        </form>
+
+        <a ng-click="model.register(user)" class="btn btn-primary btn-block form-control"
+           >Register</a>
+        <a href="#/login" class="btn btn-danger  btn-block">Cancel</a>
+    </div>

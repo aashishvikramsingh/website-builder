@@ -1,0 +1,122 @@
+
+
+<div>
+<ul class="cb-slideshow">
+    <li><span>Image 02</span><div ><h5 class="wbdv-tagline">Just good friends, good food, and good laughs. I'm happy and satisfied. - Maria Sharapova</h5></div></li>
+    <li><span>Image 03</span><div><h5 class="wbdv-tagline">I get way too much happiness from good food. - Elizabeth Oslen</h5></div></li>
+    <li><span>Image 04</span><div><h5 class="wbdv-tagline">There is no sincerer love than the love of food.- George Bernard Shaw</h5></div></li>
+    <li><span>Image 01</span><div><h5 class="wbdv-tagline">Foodie PRO is here</h5></div></li>
+    <li><span>Image 05</span><div><h5 class="wbdv-tagline">Let food be thy medicine and medicine be thy food. - Hippocrates</h5></div></li>
+    <li><span>Image 06</span><div><h5 class="wbdv-tagline">If music be the food of love, play on. - William Shakespeare</h5></div></li>
+</ul>
+
+    <nav class="navbar navbar-fixed-top bg-primary">
+        <div class="container-fluid">
+
+        <div ng-if="model.userLoggedOut">
+            <div class="navbar-text pull-right hidden-xs">
+                <a href="#/login">
+                    <span  class=" wbdv-text-clr-white" >LOGIN</span>
+                </a>
+            </div>
+
+            <div class="navbar-text pull-right visible-xs ">
+                <a href="#/login">
+                    <span  class="glyphicon glyphicon-log-in wbdv-text-clr-white" title="LogIn"></span>
+                </a>
+            </div>
+
+        </div>
+
+            <div ng-if="model.userLoggedIn">
+
+                <div class="navbar-text pull-right hidden-xs">
+                    <a ng-click="model.logout()">
+                        <span id ="LogOut" class="glyphicon glyphicon-log-out wbdv-text-clr-white" ></span>
+                    </a>
+                </div>
+
+                <!--<div class="navbar-text pull-right visible-xs ">-->
+                    <!--<a href="#/home">-->
+                        <!--<span  class="glyphicon glyphicon-log-out wbdv-text-clr-white" title="LogOut"></span>-->
+                    <!--</a>-->
+                <!--</div>-->
+
+
+
+
+                <div class="navbar-text pull-right hidden-xs">
+                    <a href="#/user/orders">
+                        <span  class=" wbdv-text-clr-white" ><i class="fa fa-history" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+
+                <div class="navbar-text pull-right ">
+                    <a href="#/user/profile">
+                        <span  class="glyphicon glyphicon-user wbdv-text-clr-white" ></span>
+                    </a>
+                </div>
+
+
+
+            </div>
+
+            <div class="navbar-header pull-left">
+                <img href="#/home" src="../../../images/logoapp.jpg" class="wbdv-rest-logo pull-left" style="width: 50px">
+                <a class="navbar-brand wbdv-text-clr-white  " style=" font-weight: bold; ">GoFoodieee!!</a>
+                <!--<a class="navbar-brand pull-left" style="padding-left:0px; color:red; font-family:sans-serif; font-weight: bold; font-size: 2">Foodie</a>-->
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container"  style="margin-top : 200px;">
+
+        <div class=" contentContainer">
+
+            <div class="row ">
+
+                <div class="col-sm-12 col-xs-12">
+
+                    <div ng-class="row" ng-show="model.error" class="alert alert-danger"  role="alert" style="background-color: black; color: white">
+                        {{model.error}}
+                    </div>
+
+
+                    <label for="address" style="color: white; padding-top: 5px;" class="">Street Address:</label>
+                    <input list="addressList"
+                           type=" "
+                           ng-model="model.search.address"
+                           ng-change="model.loadAddressFromAPI()"
+                           class="form-control"
+                           placeholder="Free form street Address (eg. 123 Main Rd, Abbot ME)"
+                           id="address"
+                           ng-keyup="$event.keyCode == 13 ? model.findRestaurant(model.search) : null">
+                    <datalist id="addressList">
+                        <option ng-repeat="adr in model.addressFromAPI" value="{{adr.text}}">
+                    </datalist>
+                </div>
+
+                <div class="col-sm-12 col-xs-12">
+                    <label for="Restaurant" style="color: white; padding-top: 5px;" >Restaurant Name</label>
+                    <input id="Restaurant"
+                           type="text"
+                           class="form-control"
+                           style="display: block;"
+                           ng-model="model.search.name"
+                           placeholder=" Restaurant name, cuisine, items or item descriptions.">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <a ng-click="model.findRestaurant(model.search)" class="btn btn-block btn-success">SEARCH RESTAURANT</a>
+                    <!--<a href="views/users/templates/user-admin.view.html" class="btn btn-block btn-success">SEARCH RESTAURANT</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</body>-->
+<!--</html>-->
+<!--position: absolute; margin-top: 20px; margin-left: auto;-->

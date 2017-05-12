@@ -1,0 +1,88 @@
+    <nav class="navbar navbar-fixed-top bg-primary">
+        <div class="container-fluid">
+
+            <div class="navbar-text pull-right">
+                <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/new">
+                    <span class="glyphicon glyphicon-plus wbdv-text-clr-white"></span>
+                </a>
+            </div>
+
+            <div class="navbar-text pull-left wbdv-mar-left-0">
+                <a href="#/users/{{model.userId}}/website">
+                    <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header pull-left">
+                <span class="navbar-brand wbdv-text-clr-white">Pages</span>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container-fluid wbdv-mar-top-25">
+
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="list-group">
+
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-11 col-sm-4">
+                                Name
+
+                            </div>
+
+                            <div class="col-sm-3 hidden-xs">
+                                Last Modified
+                            </div>
+
+                            <div class="col-sm-2 hidden-xs">
+                                PageId
+                            </div>
+                        </div>
+                    </li>
+
+                    <li ng-repeat="page in model.pages" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-10 col-sm-4">
+                                <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                                    {{page.name}}
+                                </a>
+                            </div>
+
+                            <div class="col-sm-3 hidden-xs">
+                                {{page.dateCreated | date}}
+                            </div>
+
+                            <div class="col-sm-2 hidden-xs">
+                                {{page._id}}
+                            </div>
+
+                            <div class="col-xs-2 col-sm-3 pull-right">
+                                <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                                    <span class="glyphicon glyphicon-cog  pull-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-fixed-bottom bg-primary">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a href="#/users/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user wbdv-text-clr-white"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+

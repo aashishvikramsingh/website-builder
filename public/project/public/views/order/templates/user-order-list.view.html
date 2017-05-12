@@ -1,0 +1,320 @@
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid" >
+
+
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Your Orders</span>
+        </div>
+
+
+        <div  class="navbar-text navbar-link pull-right">
+            <a href="#/user/searchResult">
+                <span class="glyphicon glyphicon-search wbdv-text-clr-white" title="Search"></span>
+            </a>
+        </div>
+
+        <div class="visible-xs pull-right wbdv-mar-top-15-mar-right-15">
+            <span class="glyphicon glyphicon-menu-hamburger wbdv-text-clr-white"
+                  ng-click="model.hamOpenNav()"></span>
+        </div>
+
+
+    </div>
+</nav>
+
+
+<div class="container-fluid wbdv-pageBackground">
+
+
+    <div id="mySidenav" class="wbdv-sidenav visible-xs">
+
+        <a data-target="#allOrders" data-toggle="tab" ng-click="model.refresh()">All Orders</a>
+        <a data-target="#delOrders" data-toggle="tab" ng-click="model.refresh()">Delivered</a>
+        <a data-target="#notDelOrders" data-toggle="tab" ng-click="model.refresh()">On the Way</a>
+
+    </div>
+
+
+    <ul class="nav nav-pills nav-justified hidden-xs wbdv-background-black wbdv-text-clr-white">
+        <li class="active">
+            <a data-target="#allOrders"class="wbdv-text-clr-white"
+               data-toggle="tab" ng-click="model.refresh()">All Orders</a></li>
+        <li><a data-target="#delOrders" class="wbdv-text-clr-white"
+               data-toggle="tab" ng-click="model.refresh()">Delivered</a></li>
+        <li><a data-target="#notDelOrders"class="wbdv-text-clr-white"
+               data-toggle="tab" ng-click="model.refresh()">On the Way</a></li>
+
+    </ul>
+
+    <div  class="container wbdv-blackContainerForTabs">
+        
+
+    <div class="tab-content clearfix">
+       
+
+<div class="tab-pane active" id="allOrders">
+        <div class="row  list-group wbdv-mar-top-15 wbdv-text-align-center">ALL ORDERS </div>
+        <div  ng-repeat="order in model.orders" id="allOrdersContent" class=" wbdv-prevent-overflow">
+
+                <div class="row list-group-item wbdv-background-black">
+
+                    <div  class="col-xs-12 wbdv-text-clr-white wbdv-background-black"
+                          data-toggle="collapse"
+                          data-target="#{{'all'+order._id}}">
+                        {{order.restName}}
+
+
+
+                    <div ng-if="order.delivered" class="col-xs-6 pull-right">
+                        <span class="glyphicon glyphicon-ok-circle pull-right wbdv-deliveredGlyphicon"></span>
+
+                    </div>
+
+
+
+                    <div ng-if="order.delivered==false && order.scheduled==true" class="col-xs-6 pull-right">
+                        <span class="glyphicon glyphicon-send pull-right wbdv-sendGlyphicon"></span>
+                    </div>
+
+                    <div ng-if="order.scheduled==false && order.delivered==false" class="col-xs-6 pull-right">
+                        <span class="glyphicon glyphicon-hourglass pull-right wbdv-clrWhtSmoke-font-25"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+                <div id="{{'all'+order._id}}" class="collapse row wbdv-mar-top-5">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="small wbdv-background-black">
+
+
+                                <div class="col-xs-12 col-sm-12 wbdv-prevent-overflow">
+                                    <div class="row wbdv-border-bottom">
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">OrderID :</div>
+                                        <div class="col-xs-7 col-sm-3 wbdv-rightinfotext">{{order._id}}</div>
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">Amount :</div>
+                                        <div class="col-xs-7 col-sm-3 wbdv-rightinfotext wbdv-amountEntry">
+                                            <span class="glyphicon glyphicon-usd"></span> {{order.totalAmount}}</div>
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">Delivered@ :</div>
+                                        <div class="col-xs-7 col-sm-9 wbdv-rightinfotext">{{order.deliverAddress}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 wbdv-leftinfotext">Orders :</div>
+
+                                <div class="col-xs-12 col-sm-12 wbdv-leftinfotext" ng-repeat="item in order.items">
+
+                                        <div class="col-xs-5 col-sm-2">
+                                            item:
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                            {{item.name}}
+                                        </div>
+                                        <div class="col-xs-5 col-sm-2">
+                                            unitPrice :
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                            {{item.basePrice}}
+                                        </div>
+                                        <div class="col-xs-5 col-sm-2">
+                                            Units:
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                          {{item.totCount}}
+                                        </div>
+
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+        <div class="tab-pane" id="delOrders">
+        <div class="row list-group wbdv-mar-top-15 wbdv-text-align-center">DELIVERED ORDERS </div>
+        <div id="delOrdersContent"  ng-repeat="order in model.delivered" class="wbdv-prevent-overflow">
+
+                <div class="row list-group-item wbdv-background-black">
+                    <div  class="col-xs-12 wbdv-text-clr-white wbdv-background-black"
+                          data-toggle="collapse"
+                          data-target="#{{'del'+order._id}}">
+                        {{order.restName}}
+
+
+
+                        <div ng-if="order.delivered" class="col-xs-6 pull-right">
+                            <span class="glyphicon glyphicon-ok-circle pull-right wbdv-deliveredGlyphicon"></span>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+                <div id="{{'del'+order._id}}" class="collapse row wbdv-mar-top-5">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="small wbdv-background-black">
+
+                                <div class="col-xs-12 col-sm-12 wbdv-prevent-overflow">
+                                    <div class="row wbdv-border-bottom">
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">OrderID :</div>
+                                        <div class="col-xs-7 col-sm-3 wbdv-rightinfotext">{{order._id}}</div>
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">Amount :</div>
+                                        <div class="col-xs-7 col-sm-3 wbdv-rightinfotext wbdv-amountEntry">
+                                            <span class="glyphicon glyphicon-usd"></span> {{order.totalAmount}}</div>
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">Delivered@ :</div>
+                                        <div class="col-xs-7 col-sm-9 wbdv-rightinfotext">{{order.deliverAddress}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 wbdv-leftinfotext">Orders :</div>
+
+                                <div class="col-xs-12 col-sm-12 wbdv-leftinfotext" ng-repeat="item in order.items">
+
+                                        <div class="col-xs-5 col-sm-2">
+                                            item:
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                            {{item.name}}
+                                        </div>
+                                        <div class="col-xs-5 col-sm-2">
+                                            unitPrice :
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                            {{item.basePrice}}
+                                        </div>
+                                        <div class="col-xs-5 col-sm-2">
+                                            Units:
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                            {{item.totCount}}
+                                        </div>
+
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        </div>
+
+        <div class="tab-pane" id="notDelOrders">
+        <div class="row wbdv-mar-top-15 list-group wbdv-text-align-center">NOT DELIVERED</div>
+
+
+            <div id="notDelOrdersContent" class="wbdv-prevent-overflow" ng-repeat="order in model.notDelivered">
+                <div class="row  list-group-item wbdv-background-black">
+                    <div  class="col-xs-12 wbdv-text-clr-white wbdv-background-black"
+                          data-toggle="collapse"
+                          data-target="#{{'not'+order._id}}">
+                        {{order.restName}}
+
+
+                        <div ng-if="order.scheduled==false && order.delivered==false " class="col-xs-2 pull-right">
+                             <i class="glyphicon glyphicon-hourglass pull-right wbdv-font-size-25"
+                                aria-hidden="true"></i>
+                        </div>
+
+                        <div ng-if="order.scheduled==true && order.delivered==false"
+                             class="col-xs-2 pull-right">
+                            <span class="glyphicon glyphicon-send pull-right wbdv-sendGlyphicon"></span>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div id="{{'not'+order._id}}" class="collapse row wbdv-mar-top-5">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="small wbdv-background-black">
+
+
+                                <div class="col-xs-12 col-sm-12 wbdv-prevent-overflow">
+                                    <div class="row wbdv-border-bottom">
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">OrderID :</div>
+                                        <div class="col-xs-7 col-sm-3 wbdv-rightinfotext">{{order._id}}</div>
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">Amount :</div>
+                                        <div class="col-xs-7 col-sm-3 wbdv-rightinfotext wbdv-amountEntry">
+                                            <span class="glyphicon glyphicon-usd"></span> {{order.totalAmount}}</div>
+                                        <div class="col-xs-5 col-sm-3 wbdv-leftinfotext">Delivered@ :</div>
+                                        <div class="col-xs-7 col-sm-9 wbdv-rightinfotext">{{order.deliverAddress}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 wbdv-leftinfotext">Orders :</div>
+
+                                <div class="col-xs-12 col-sm-12 wbdv-leftinfotext" ng-repeat="item in order.items">
+
+                                        <div class="col-xs-5 col-sm-2">
+                                            item:
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                            {{item.name}}
+                                        </div>
+                                        <div class="col-xs-5 col-sm-2">
+                                            unitPrice :
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                            {{item.basePrice}}
+                                        </div>
+                                        <div class="col-xs-5 col-sm-2">
+                                            Units:
+                                        </div>
+                                        <div class="col-xs-7 col-sm-2">
+                                            {{item.totCount}}
+                                        </div>
+
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary" >
+
+    <div  class="navbar-text pull-left ">
+        <a ng-click="model.logout()">
+            <span class="glyphicon glyphicon-log-out wbdv-text-clr-white wbdv-fontLar-mar-left-15"
+                  title="Log Out"></span>
+        </a>
+    </div>
+
+
+
+    <div class="navbar-text pull-right ">
+        <a href="#/user/profile">
+            <span  class="glyphicon glyphicon-user wbdv-text-clr-white" ></span>
+        </a>
+    </div>
+
+
+</nav>
+
+
+

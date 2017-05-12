@@ -1,0 +1,55 @@
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="navbar-text pull-right wbdv-mar-right-5">
+                    <a ng-click="model.createWidget(model.widget)" class="wbdv-text-clr-white">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                </div>
+
+                <div class="navbar-text pull-left wbdv-mar-left-0" >
+                    <a href="#/users/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+                       class="wbdv-text-clr-white">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+
+                <div class="navbar-header pull-left">
+                    <span class="navbar-brand wbdv-text-clr-white">
+                        New Widget
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid wbdv-mar-top-50">
+
+    <div ng-show="model.message" class="alert alert-success" role="alert" >
+        {{model.message}}
+    </div>
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
+    <div ng-include="model.getEditorTemplateUrl(model.widgetType)"></div>
+</div>
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 wbdv-mar-right-5" >
+                <a href="#/users/{{model.userId}}" class="pull-right">
+                    <span class="glyphicon glyphicon-user navbar-text wbdv-text-clr-white"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+

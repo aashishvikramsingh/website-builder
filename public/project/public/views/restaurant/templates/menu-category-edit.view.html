@@ -1,0 +1,60 @@
+<nav class="navbar  navbar-fixed-top bg-primary">
+    <div class="container-fluid" >
+        <div  class="navbar-text navbar-link pull-left">
+            <a href="#/user/restaurant/menu">
+                <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white" title="Back"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Edit Category</span>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container wbdv-pageBackground">
+    <form>
+        <div  class="blackContainer wbdv-menu-container">
+
+            <div>
+                <label for="prevCat">Previous Category</label>
+                <input id="prevCat" ng-model="model.catname" ng-disabled="model.catname"  class="form-control">
+            </div>
+
+            <div>
+                <label for="newCat">New Category</label>
+                <input id="newCat" ng-model="model.menucat.newcat" class="form-control">
+            </div>
+
+        </div>
+
+    </form>
+    <div  class="wbdv-mar-bottom-60 wbdv-pad-left-right wbdv-mar-top-25">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <a ng-click="model.updateMenuCategory(model.menucat)" class="btn btn-success btn-block">Update</a>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <a ng-click="model.deleteMenuCategory(model.catname)" class="btn btn-danger btn-block">Delete</a>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<nav class="navbar  navbar-fixed-bottom bg-primary" >
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-xs-12" >
+                <a href="#/user/profile" class="wbdv-mar-right-5 pull-right">
+                        <span class="glyphicon glyphicon-user wbdv-text-clr-white navbar-text">
+                        </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

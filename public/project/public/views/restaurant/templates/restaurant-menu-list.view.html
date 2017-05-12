@@ -1,0 +1,118 @@
+<nav class="navbar navbar-fixed-top bg-primary" xmlns="http://www.w3.org/1999/html">
+    <div class="container-fluid">
+
+        <div class="navbar-text pull-right visible-xs">
+            <a href="#/user/restaurant/menu/new">
+                <span class="glyphicon glyphicon-plus wbdv-text-clr-white" title="Add new menu"></span>
+            </a>
+        </div>
+
+
+
+        <div class="navbar-text pull-right hidden-xs">
+            <a href="#/user/restaurant/menu/new">
+                <span class="wbdv-text-clr-white" title="Add new menu">Add Item</span>
+            </a>
+        </div>
+
+
+        <div class="navbar-text pull-left wbdv-mar-left-0">
+            <a href="#/user/restaurant">
+                    <span class="glyphicon glyphicon-chevron-left wbdv-text-clr-white"></span>
+            </a>
+        </div>
+
+        <div class="navbar-header navbar-link pull-left wbdv-mar-left-0">
+            <span class="navbar-brand wbdv-text-clr-white wbdv-register-font">Menu Section </span>
+        </div>
+    </div>
+</nav>
+
+<div class="container wbdv-pageBackground">
+    <div class="blackContainer">
+        <div class="contentContainer wbdv-prevent-overflow">
+            <ul id="ownerRestaurantsRegistered" class="list-group">
+                <li class="list-group-item wbdv-clr-black wbdv-bgclrLighSlateGrey wbdv-mar-bottom-5">
+                    <div class="row">
+                        <div class="col-xs-6 pull-left">
+                            CUISINES
+                        </div>
+
+                        <div class="col-xs-6 pull-left">
+                            Total Items
+                        </div>
+
+                    </div>
+                </li>
+
+                <!--{{model.result}}-->
+                <li ng-repeat ="category in model.result"
+                    class="list-group-item wbdv-text-clr-white wbdv-background-black" >
+                    <div class="row">
+                        <div class="col-xs-6 pull-left" data-toggle="collapse" data-target="#{{category.group}}">
+                            {{category.group}}
+                        </div>
+                        <div class="col-xs-6 pull-left">
+                            <div class="row">
+                                <div class="col-xs-9 pull-left"
+                                     data-toggle="collapse"
+                                     data-target="#{{category.group}}">
+                                    {{category.entry.length}}
+                                </div>
+                                <div class="col-xs-3 pull-right">
+                                    <a href="#/user/restaurant//menu/category/{{category.group}}">
+                                        <span class="glyphicon glyphicon-folder-open
+                                        wbdv-text-clr-white pull-right "></span>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div id="{{category.group}}" class="collapse">
+                        <ul class="list-group">
+                            <li ng-repeat="entries in category.entry" class="list-group-item
+                                wbdv-clr-black wbdv-bgClrGray">
+                                <div class="row">
+                                    <div class="col-xs-6 pull-left">
+                                        <span>{{entries[0]}}</span>
+                                    </div>
+                                    <div class="col-xs-6 pull-left">
+                                        <div class="row">
+                                            <div class="col-xs-9 pull-left">
+                                                <span class="glyphicon glyphicon-usd"></span>
+                                                <span>{{entries[1]}}</span>
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <a ng-click="model.gotoItemEdit(entries[2])">
+                                                    <span class="glyphicon glyphicon-cog
+                                                    pull-right wbdv-text-clr-white"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<nav class="navbar navbar-fixed-bottom bg-primary">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="#/user/profile">
+                <span class="glyphicon glyphicon-user wbdv-text-clr-white"></span>
+            </a>
+        </div>
+
+    </div>
+</nav>
